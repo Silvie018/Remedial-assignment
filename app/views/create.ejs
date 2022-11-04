@@ -1,0 +1,16 @@
+<form method="post" action="/save"  enctype="multipart/form-data">
+ Vehcileid<input type="text" name="vehicleid" /><br/>
+  vehiclebrand<input type="text" name="vehiclebrand" /><br/>
+  Category 
+  <select name="categoryid">
+    <% for(var i=0;i< cate.length;i++) { %>
+      <option value="<%= cate[i].categoryid %>"><%= cate[i].categoryname %></option>
+    <%};%>
+</select><br/>
+  vehiclepicture <input type="file" name="myImage" accept="image/*" /><br/>
+  price <input type="number" name="price" /><br/>
+  deperciation<input type="number" name="deperciation" /><br/>
+  numberofyears<input type="number" name="numberofyears" /><br/>
+  totalprice<input type="number" name="totalprice" /><br/>
+  <input type="submit" name="s1" value="Submit" /><br/>
+</form>

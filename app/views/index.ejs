@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vehicle List</title>
+</head>
+<body>
+	<h4><a href="/create">Create</a></h4>
+	<% if(data.length>0) { %>
+		<table>
+			<thead>
+				<tr>
+					<th>VehicleId</th>
+					<th>vehiclebrand</th>
+					<th>categoryname</th>
+					<th>vehiclepicture</th>
+					<th>price</th>
+					<th>deperciation</th>
+					<th>numberofyears</th>
+					<th>totalprice</th>
+					<th>Operations</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% data.forEach(function(key) { %>
+				<tr>
+					<td><%=key.vehicleId%></td>
+					<td><%=key.vehiclebrand%></td>
+					<td><% cate.forEach(function(key1) { 
+						if(key1.categoryid == key.categoryid) {%>
+							<%=key1.categoryname%>
+					<% }}); %></td>
+					<!-- <td><img src='/public/uploads/<%=key.vehiclepicture%>' height=100 width=100 /></td> -->
+					<td><img src='/upload/<%=key.vehiclepicture%>' height=100 width=100 /></td>
+					<!-- <td><img src='/public/uploads/20220730_113337.jpg' height=100 width=100 /></td> -->
+					<td><%=key.price%></td>
+					<td><%=key.deperciation%></td>
+					<td><%=key.numberofyears%></td>
+					<td><%=key.totalprice%></td>
+					<td><a href="/deletevehicle/<%=key._id%>">Delete</a>
+						<a href="/searchvehicle/<%=key._id%>">Edit</a>
+					</td>
+				</tr>
+				<% }); %>
+			</tbody>
+		</table>
+	<% }; %>
+</body>
+</html>
